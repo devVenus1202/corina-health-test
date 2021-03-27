@@ -19667,6 +19667,9 @@ export type ListReposQuery = (
         ), assignableUsers: (
           { __typename?: 'UserConnection' }
           & Pick<UserConnection, 'totalCount'>
+        ), stargazers: (
+          { __typename?: 'StargazerConnection' }
+          & Pick<StargazerConnection, 'totalCount'>
         ), licenseInfo?: Maybe<(
           { __typename?: 'License' }
           & Pick<License, 'key'>
@@ -19723,6 +19726,9 @@ export const ListReposDocument = gql`
             url
           }
           assignableUsers {
+            totalCount
+          }
+          stargazers {
             totalCount
           }
           licenseInfo {
