@@ -11,8 +11,8 @@ function App() {
   return (
     <BrowserRouter history={history}>
       <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/:repositoryId" component={Home} />
+        <Route path="/" exact component={Home} />
+        <Route path="/detail/:repositoryId" exact component={RepositoryDetail} />
       </Switch>
     </BrowserRouter>
   );

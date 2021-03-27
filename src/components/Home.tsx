@@ -28,7 +28,7 @@ export default function Home() {
   }, [query, delayedQuery]);
   const totalCount = data?.search.repositoryCount;
   return (
-    <div className="main">
+    <div className="content">
       <input onChange={handleInput} value={query} placeholder="Please type search key" />
       {loading && <div className="searching">Searching...</div>}
       {!loading && queryString && data && (
@@ -38,6 +38,7 @@ export default function Home() {
             if (!item || !item.node) {
               return '';
             }
+            console.log(item.node);
             return <Repository repository={item?.node}></Repository>;
           })}
         </div>

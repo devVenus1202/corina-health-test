@@ -9,7 +9,7 @@ export default function Repository(props: IProps) {
     <div className="repository">
       <div className="repository-name">
         <div>
-          {repository.name}(
+          <a href={`/detail/${repository.id}`}>{repository.name}</a>(
           <a href={repository.url} target="_blank">
             {repository.url}
           </a>
