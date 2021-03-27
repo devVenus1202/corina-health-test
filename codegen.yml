@@ -1,0 +1,27 @@
+overwrite: true
+schema: 
+  https://api.github.com/graphql:
+    headers:
+      Authorization: 'Bearer 61b1c8ecb456b729486df0a4fb39595f0b189371'
+documents: 'src/generated/**/*.graphql'
+generates:
+  src/generated/index.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHooks: true
+      withResultType: true
+      withMutationFn: true
+      withMutationOptionsType: true
+      withHOC: false
+      withComponent: false
+      reactApolloVersion: 3
+      reactApolloImportFrom: '@apollo/react-common'
+      hooksImportFrom: '@apollo/react-hooks'
+      namingConvention:
+        enumValues: keep
+  src/generated/fragments.tsx:
+    plugins:
+      - fragment-matcher
