@@ -1,0 +1,43 @@
+query getRepoById($id: ID!) {
+  node(id: $id) {
+    ... on Repository {
+      id
+      name
+      createdAt
+      description
+      isArchived
+      isPrivate
+      url
+      owner {
+        login
+        id
+        url
+      }
+      assignableUsers {
+        totalCount
+      }
+      stargazers {
+        totalCount
+      }
+      licenseInfo {
+        key
+      }
+      defaultBranchRef {
+        target {
+          ... on Commit {
+            history(first: 10) {
+              totalCount
+              edges {
+                node {
+                  ... on Commit {
+                    committedDate
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
