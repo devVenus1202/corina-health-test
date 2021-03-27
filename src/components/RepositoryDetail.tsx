@@ -23,8 +23,12 @@ const RepositoryDetail: React.FC = ({ match }: any) => {
             {node.owner.login}
           </div>
           <div>
+            <b>Stars:</b>
+            {node.stargazers.totalCount}
+          </div>
+          <div>
             <b>Total Commits:</b>
-            {node.defaultBranchRef.target.history.totalCount}
+            {node.defaultBranchRef ? node.defaultBranchRef.target.history.totalCount : 0}
           </div>
           <div>
             <b>Is Public:</b>
@@ -33,10 +37,6 @@ const RepositoryDetail: React.FC = ({ match }: any) => {
           <div>
             <b>Is Archived:</b>
             {node.isArchived ? 'Yes' : 'No'}
-          </div>
-          <div>
-            <b>Stars:</b>
-            {node.stargazers.totalCount}
           </div>
         </div>
       )}
