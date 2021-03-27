@@ -29,7 +29,7 @@ export default function Home() {
   const totalCount = data?.search.repositoryCount;
   return (
     <div className="main">
-      <input onChange={handleInput} value={query} />
+      <input onChange={handleInput} value={query} placeholder="Please type search key" />
       {loading && <div className="searching">Searching...</div>}
       {!loading && queryString && data && (
         <div className="repository-list">
