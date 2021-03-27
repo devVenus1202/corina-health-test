@@ -26,17 +26,22 @@ export default function Home() {
     // Cancel the debounce on useEffect cleanup.
     return delayedQuery.cancel;
   }, [query, delayedQuery]);
+  const totalCount = data?.search.repositoryCount;
   return (
     <div className="main">
       <input onChange={handleInput} value={query} />
-
-      {/* <div>{data}</div> */}
-      {data?.search.edges?.map(item => {
-        if (!item || !item.node) {
-          return '';
-        }
-        return <Repository repository={item?.node}></Repository>;
-      })}
+      {loading && <div className="searching">Searching...</div>}
+      {!loading && queryString && data && (
+        <div className="repository-list">
+          <div className="total-count">Results: {totalCount}</div>
+          {data?.search.edges?.map(item => {
+            if (!item || !item.node) {
+              return '';
+            }
+            return <Repository repository={item?.node}></Repository>;
+          })}
+        </div>
+      )}
     </div>
   );
 }
