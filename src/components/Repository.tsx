@@ -1,5 +1,9 @@
 import React from 'react';
 
-export default function Repository() {
-  return <div>Test</div>;
+export interface IProps {
+  repository: any;
+}
+export default function Repository(props: IProps) {
+  const { repository } = props;
+  return <div>{repository.name}</div>;
 }
